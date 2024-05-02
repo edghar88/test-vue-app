@@ -2,14 +2,28 @@
 
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
+import pluginVue from 'eslint-plugin-vue'
 
-export default tseslint.config(
+export default [
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
+  ...pluginVue.configs['flat/recommended'],
   {
-    files: ['**/*.{ts,tsx,mts,cts}'],
-    rules: {
-      'no-undef': 'off',
+    ignores: ['**/*.cjs', '**.d.ts', '**.config.*'],
+  },
+  {
+    plugins: {
+      '@typescript-eslint': tseslint.plugin,
+    }
+  },
+  {
+    languageOptions: {
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        project: ['./tsconfig.json', './tsconfig.app.json', './tsconfig.node.json'],
+        tsconfigRootDir: import.meta.dirname,
+        extraFileExtensions: ['.vue']
+      },
     },
   },
-);
+];
