@@ -20,7 +20,7 @@ export default [
     languageOptions: {
       parserOptions: {
         parser: '@typescript-eslint/parser',
-        project: ['./tsconfig.json', './tsconfig.app.json', './tsconfig.node.json'],
+        project: true,
         tsconfigRootDir: import.meta.dirname,
         extraFileExtensions: ['.vue']
       },
