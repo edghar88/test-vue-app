@@ -6,7 +6,7 @@ import pluginVue from 'eslint-plugin-vue'
 
 export default [
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
   ...pluginVue.configs['flat/recommended'],
   {
     ignores: ['**/*.cjs', '**.d.ts', '**.config.*'],

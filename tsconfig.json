@@ -4,7 +4,7 @@
     "@tsconfig/node20/tsconfig.json"
   ],
   "include": [
-    "env.d.ts",
+    "**/*.ts",
     "src/**/*",
     "src/**/*.vue",
     "vite.config.*",
